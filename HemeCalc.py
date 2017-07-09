@@ -1,11 +1,11 @@
-print ("Welcome to the Hematology Calculator Main Menu v1.0.")
+print ("Welcome to the Hematology Calculator Main Menu v1.02.")
 print ("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
 Loopcounter = 2
-while Loopcounter > 1:
+while Loopcounter > 1: #Loop is for sending user to beginning if bad parameter given. Ends if answer returned to user.
     User_Goal = input("Enter the parameter that you wish to determine. Choices are RBC, HCT, Hgb, MCV, MCH, MCHC. Please enter as listed.:")
-    #Input must be changed to raw_input for it to run on older versions of python like repl.it
-    if User_Goal == "RBC":
-        print ("RBC can be Calculated using MCH&Hb or MCV&Hct")
+    User_Goal = User_Goal.lower()   #Prevents case-sensitive errors. Note the above input needs to be changed to raw_input in older python versions
+    if User_Goal == "rbc":
+        print ("RBC can be Calculated using MCH&HGB or MCV&HCT")
         MCHorMCV = input(("Enter either your HCT in decimal form or your Hgb in g/L: ")) #Can ask this way since numbers won't intersect ever
         if float(MCHorMCV) > 1: #As stated HCT > 1 or Hgb < 40 are impossible so this is done in an awkward way to save coding
             MCH = input(("Please enter your MCH in pg: "))
@@ -19,11 +19,11 @@ while Loopcounter > 1:
             rRBC1 = round(RBC1,2)
             print ("Your RBC is " + str(rRBC1) + "x10^12/L")
             Loopcounter = 0
-    elif User_Goal == "HCT":
-        print ("Hct can be calculated using MCV&RBC or HgB&MCHC")
+    elif User_Goal == "hct":
+        print ("Hct can be calculated using MCV&RBC or HGB&MCHC")
         MCVorMCHC= input(("Enter either your MCHC in g/L or MCV in fL "))
         if float(MCVorMCHC) > 250:
-            Hgb1 = input(("Please enter your Hgb in g/L: "))
+            Hgb1 = input(("Please enter your HGB in g/L: "))
             HCT1 = float(Hgb1)/float(MCVorMCHC)
             HCT1 = round(HCT1,3)
             print ("Yourc HCT is " + str(HCT1) +"L/L")
@@ -34,45 +34,45 @@ while Loopcounter > 1:
              HCT2 = round(HCT2,3)
              print ("Your HCT is " + str(HCT2) +"L/L")
              Loopcounter = 0
-    elif User_Goal == "Hgb":
-        print("HgB can be calculated using MCH&RBC or MCHC&HCT")
+    elif User_Goal == "hgb" or User_Goal == "hb": #made either wording of parameter acceptable to reduce errors
+        print("HGB can be calculated using MCH&RBC or MCHC&HCT")
         MCHorMCHC = input(("Enter either your MCH in pg or your MCHC in g/L: "))
         if float(MCHorMCHC) > 100:
             HCT3 = input(("Please enter your HCT in L/L"))
             Hgb2 = float(MCHorMCHC) * float(HCT3)
             Hgb2 = int(Hgb2) #Could have rounded it as well
-            print("Your Hgb is " + str(Hgb2) + "g/L")
+            print("Your HGB is " + str(Hgb2) + "g/L")
             Loopcounter = 0
         elif float(MCHorMCHC) < 100:
             RBC3 = input(("Please enter your RBC in #/fL"))
             Hgb3 = float(MCHorMCHC) * float(RBC3)
             Hgb3 = int(Hgb3)  # Could have rounded it as well
-            print("Your Hgb is " + str(Hgb3) + "g/L")
+            print("Your HGB is " + str(Hgb3) + "g/L")
             Loopcounter = 0
-    elif User_Goal =="MCV":
+    elif User_Goal =="mcv":
         RBC4= input("Please enter your RBC in #/fL: ")
         HCT4= input("Please enter your HCT in L/L: ")
         MCV2 = (float(HCT4)/float(RBC4)) *1000
         MCV2= int(MCV2)
         print("Your MCV is " + str(MCV2) + "g/L")
         Loopcounter = 0
-    elif User_Goal =="MCH":
+    elif User_Goal =="mch":
         RBC5= input("Please enter your RBC in #/fL: ")
-        Hgb4= input("Please enter your Hgb in g/L: ")
+        Hgb4= input("Please enter your HGB in g/L: ")
         MCH2 = (float(Hgb4)/float(RBC5))
         MCH2= round(MCH2,1)
         print("Your MCH is " + str(MCH2) + "pg")
         Loopcounter = 0
-    elif User_Goal =="MCHC":
+    elif User_Goal =="mchc":
         HCT5= input("Please enter your HCT in L/L: ")
-        Hgb5= input("Please enter your Hgb in g/L: ")
+        Hgb5= input("Please enter your HGB in g/L: ")
         MCHC2 = (float(Hgb5)/float(HCT5))
         MCHC2= int(MCHC2)
         print("Your MCHC is " + str(MCHC2) + "g/L")
         Loopcounter = 0
     else:
-        print ("Please enter one of the above parameters as instructed.")
-        print ("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+        print ("Please enter one of the above parameters as instructed.") #Enables the user to try again without re-running the program.Loops back to beginning
+        print ("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~") #~ for de-cluttering, can be omitted
         print ("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
 
 
