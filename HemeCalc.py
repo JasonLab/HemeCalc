@@ -2,7 +2,7 @@ print ("Welcome to the Hematology Calculator Main Menu v1.0.")
 print ("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
 Loopcounter = 2
 while Loopcounter > 1:
-    User_Goal = input("Enter the parameter that you wish to determine. Choices are RBC, HCT, Hgb, MCV, MCH, MCHC. Please enter as listed.:")
+    User_Goal = raw_input("Enter the parameter that you wish to determine. Choices are RBC, HCT, Hgb, MCV, MCH, MCHC. Please enter as listed.:")
 
     if User_Goal == "RBC":
         print ("RBC can be Calculated using MCH&Hb or MCV&Hct")
