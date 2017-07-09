@@ -21,7 +21,7 @@ while Loopcounter > 1: #Loop is for sending user to beginning if bad parameter g
             Loopcounter = 0
     elif User_Goal == "hct":
         print ("Hct can be calculated using MCV&RBC or HGB&MCHC")
-        MCVorMCHC= input(("Enter either your MCHC in g/L or MCV in fL "))
+        MCVorMCHC= input(("Enter either your MCHC in g/L or MCV in fL: "))
         if float(MCVorMCHC) > 250:
             Hgb1 = input(("Please enter your HGB in g/L: "))
             HCT1 = float(Hgb1)/float(MCVorMCHC)
@@ -29,7 +29,7 @@ while Loopcounter > 1: #Loop is for sending user to beginning if bad parameter g
             print ("Yourc HCT is " + str(HCT1) +"L/L")
             Loopcounter = 0
         elif float(MCVorMCHC) < 250:
-             RBC2 = input(("Please enter your RBC in fL "))
+             RBC2 = input(("Please enter your RBC in x10^12/L: "))
              HCT2 = float(RBC2)*float(MCVorMCHC)/1000
              HCT2 = round(HCT2,3)
              print ("Your HCT is " + str(HCT2) +"L/L")
@@ -38,26 +38,26 @@ while Loopcounter > 1: #Loop is for sending user to beginning if bad parameter g
         print("HGB can be calculated using MCH&RBC or MCHC&HCT")
         MCHorMCHC = input(("Enter either your MCH in pg or your MCHC in g/L: "))
         if float(MCHorMCHC) > 100:
-            HCT3 = input(("Please enter your HCT in L/L"))
+            HCT3 = input(("Please enter your HCT in L/L: "))
             Hgb2 = float(MCHorMCHC) * float(HCT3)
             Hgb2 = int(Hgb2) #Could have rounded it as well
             print("Your HGB is " + str(Hgb2) + "g/L")
             Loopcounter = 0
         elif float(MCHorMCHC) < 100:
-            RBC3 = input(("Please enter your RBC in #/fL"))
+            RBC3 = input(("Please enter your RBC in x10^12/: "))
             Hgb3 = float(MCHorMCHC) * float(RBC3)
             Hgb3 = int(Hgb3)  # Could have rounded it as well
             print("Your HGB is " + str(Hgb3) + "g/L")
             Loopcounter = 0
     elif User_Goal =="mcv":
-        RBC4= input("Please enter your RBC in #/fL: ")
+        RBC4= input("Please enter your RBC in x10^12/L: ")
         HCT4= input("Please enter your HCT in L/L: ")
         MCV2 = (float(HCT4)/float(RBC4)) *1000
         MCV2= int(MCV2)
         print("Your MCV is " + str(MCV2) + "g/L")
         Loopcounter = 0
     elif User_Goal =="mch":
-        RBC5= input("Please enter your RBC in #/fL: ")
+        RBC5= input("Please enter your RBC in x10^12/L: ")
         Hgb4= input("Please enter your HGB in g/L: ")
         MCH2 = (float(Hgb4)/float(RBC5))
         MCH2= round(MCH2,1)
