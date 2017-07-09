@@ -3,7 +3,7 @@ print ("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
 Loopcounter = 2
 while Loopcounter > 1:
     User_Goal = input("Enter the parameter that you wish to determine. Choices are RBC, HCT, Hgb, MCV, MCH, MCHC. Please enter as listed.:")
-
+    #Input must be changed to raw_input for it to run on older versions of python like repl.it
     if User_Goal == "RBC":
         print ("RBC can be Calculated using MCH&Hb or MCV&Hct")
         MCHorMCV = input(("Enter either your HCT in decimal form or your Hgb in g/L: ")) #Can ask this way since numbers won't intersect ever
